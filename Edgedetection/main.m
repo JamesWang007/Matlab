@@ -5,7 +5,7 @@
 
 
 % - using prewitt
-I = imread('http://i.stack.imgur.com/5EJJH.jpg');
+I = imread('5EJJH.jpg');
 f_ori = figure('Name', 'original image'), imshow(I);
 
 I_prewitt = prewitt(I);

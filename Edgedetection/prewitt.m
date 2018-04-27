@@ -6,14 +6,14 @@ function out_img = prewitt( input_image )
     I = im2double(I); 
 
     % mask
-    b=[-1 -1 -1;0 0 0;1 1 1]/6;
-    c=[-1 0 1; -1 0 1; -1 0 1]/6;
+    maskX=[-1 -1 -1;0 0 0;1 1 1]/6;
+    maskY=[-1 0 1; -1 0 1; -1 0 1]/6;
     
-    Gx=abs(conv2(I, c, 'same'));
-    Gy=abs(conv2(I, b, 'same'));
+    Gx=abs(conv2(I, maskY, 'same'));
+    Gy=abs(conv2(I, maskX, 'same'));
     
-    G = sqrt( Gx.^2 + Gy.^2); % L2 norm
-    out_img = G > 0.08995; % hard coding
+    magnitude = sqrt( Gx.^2 + Gy.^2); % L2 norm
+    out_img = magnitude > 0.08995; % hard coding
    
 
 end

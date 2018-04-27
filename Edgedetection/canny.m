@@ -5,7 +5,7 @@
     %    step 1 : Gaussian Filter
     %    step 2 : Convolution
     %    step 3 : Non Maximum Supression
-    %    step 4 : 
+    %    step 4 : Double Thresholds
     %    step 5 : Hysteresis Thresholding
     %    
     % load an image
