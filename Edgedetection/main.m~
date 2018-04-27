@@ -1,29 +1,22 @@
-I = imread('circuit.tif');
-% imshow(I)
+%I = imread('circuit.tif');
+%BW1 = edge(I,'Canny');
+%BW2 = edge(I,'Prewitt');
+%imshowpair(BW1,BW2,'montage')
 
 
+% - using prewitt
+I = imread('http://i.stack.imgur.com/5EJJH.jpg');
+f_ori = figure('Name', 'original image'), imshow(I);
 
-BW1 = edge(I,'Canny');
+I_prewitt = prewitt(I);
+f_p = figure('Name', 'prewitt'), imshow(I_prewitt);
 
-BW2 = edge(I,'Prewitt');
-
-imshowpair(BW1,BW2,'montage')
-
-
-
-I = gpuArray(imread('circuit.tif'));
-
-BW = edge(I,'prewitt');
-
-figure, imshow(BW)
+%figure, edge(I_prewitt,'Prewitt', [], 'both', 'nothinning');
 
 
-figure;
-imshow(out);
-
-figure;
-edge(openImage,'Prewitt', [], 'both', 'nothinning');
-
+% - using canny
+I_canny = canny(I);
+f_c = figure('Name', 'canny'), imshow(I_canny);
 
 
 
