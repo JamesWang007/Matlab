@@ -1,8 +1,8 @@
-function out_img = prewitt( input_image )
+function out_img = prewitt( img_ori )
 %PREWITT Summary of this function goes here
 %
 
-    I = rgb2gray(input_image);
+    I = rgb2gray(img_ori);
     I = im2double(I); 
 
     % mask

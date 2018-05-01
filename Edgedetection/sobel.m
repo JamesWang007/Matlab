@@ -1,15 +1,20 @@
-%addpath(fullfile(pwd,'TOOLBOX'));
-%addpath(fullfile(pwd,'images'));
-
-%Sobel Edge Detection 
-I = imread('circuit.tif');
-f_ori = figure,imshow(I);
-message = sprintf('Sobel Edge Detection');
-
-f_c = figure, I_sobel = sobelEdgeDetection(I);
-imshow(I_sobel);
+function out_img = sobel( img_ori )
+%SOBEL Summary of this function goes here
+%   Detailed explanation goes here
 
 
+    I = rgb2gray(img_ori);
+    I = im2double(I); 
+    
+    maskX = [-1 0 1 ; -2 0 2; -1 0 1];
+    maskY = [-1 -2 -1 ; 0 0 0 ; 1 2 1] ;
 
-%uiwait(msgbox(message,'Done', 'help'));
-%close all
+    GX = conv2(I, maskX);
+    GY = conv2(I, maskY);
+
+    magnitude = sqrt(GX.^2 + GY.^2); % L2-norm
+    %out_img(1:10, 1:10)
+    out_img = magnitude > 101/255; % hard coding
+
+end
+

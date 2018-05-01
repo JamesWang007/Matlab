@@ -7,7 +7,7 @@ function magnitude = sobelEdgeDetection( img_ori )
     resY = conv2(img_ori, maskY);
 
     magnitude = sqrt(resX.^2 + resY.^2); % L2-norm
-    thresh = magnitude < 101; % hard coding
+    thresh = magnitude < 101/255; % hard coding
     magnitude(thresh) = 0;
     
 end
