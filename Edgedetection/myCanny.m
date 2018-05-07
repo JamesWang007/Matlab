@@ -64,7 +64,7 @@ figure, imagesc(angle_GauFilter2); colorbar;
 
 % Step 2
 % Calculate magnitude
-magnitude = (Filtered_X.^2) + (Filtered_Y.^2);
+magnitude = (Filtered_GX.^2) + (Filtered_GY.^2);
 magnitude2 = sqrt(magnitude);
 
 img_NMSupression = zeros (img_height, img_width);
@@ -93,6 +93,8 @@ figure, imshow(img_NMSupression);
 % apply Hysteresis Thresholding
 threshold_low = 0.075;
 threshold_high = 0.175;
+%threshold_low = 0.030;
+%threshold_high = 0.30;
 threshold_low = threshold_low * max(max(img_NMSupression));
 threshold_high = threshold_high * max(max(img_NMSupression));
 
