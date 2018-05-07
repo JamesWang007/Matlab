@@ -2,11 +2,11 @@
 %    step 1 : Gaussian Filter
 %    step 2 : Convolution
 %    step 3 : Non Maximum Supression
-%    step 4 : 
+%    step 4 : Double Thresholding
 %    step 5 : Hysteresis Thresholding
 %    
 % load an image
-I = imread ('peng.jpg');
+I = imread ('rocks.jpg');
 figure, imshow(I);
 I_gray = rgb2gray(I);
 I_gray_double = double(I_gray);
@@ -34,7 +34,7 @@ angle_GauFilter = angle_GauFilter*180/pi;
 img_height = size(A,1);
 img_width  = size(A,2);
 
-% Adjustment for negative directions, making all directions positive
+% modify all value positive
 for i=1:img_height
     for j=1:img_width
         if (angle_GauFilter(i,j)<0) 
@@ -89,7 +89,7 @@ end;
 img_NMSupression = img_NMSupression.*magnitude2;
 figure, imshow(img_NMSupression);
 
-% Step 4
+% Step 4 & 5
 % apply Hysteresis Thresholding
 threshold_low = 0.075;
 threshold_high = 0.175;
