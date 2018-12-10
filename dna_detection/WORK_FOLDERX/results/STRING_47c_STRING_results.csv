@@ -1,0 +1,20 @@
+Name,*,Value
+Memory,*,43MB of 5974MB (<1%)
+nImages(),,1
+getTitle(),,"STRING_47c_STRING.tiff"
+threshMin,,0.5000
+threshMax,,2
+minPartSize,,550
+thresRange,,array[5]
+workFolder,,"C:\Users\QufeiGu\Downloads\WORK_FOLDER\"
+sourceFolder,,"C:\Users\QufeiGu\Downloads\WORK_FOLDER\tiff/"
+listInFolder,,array[1]
+maskFolder,,"C:\Users\QufeiGu\Downloads\WORK_FOLDER\mask/"
+overlayFolder,,"C:\Users\QufeiGu\Downloads\WORK_FOLDER\overlay/"
+resultsFolder,,"C:\Users\QufeiGu\Downloads\WORK_FOLDER\results/"
+numberedMaskFolder,,"C:\Users\QufeiGu\Downloads\WORK_FOLDER\numbered_mask/"
+i,,0
+j,,0
+sourceFileName,,"STRING_47c_STRING"
+in2,*,9
+tempStr,*,"47"
