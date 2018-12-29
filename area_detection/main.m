@@ -7,12 +7,10 @@ img = imread('proteins.jpg');
 
 % original image
 x = img;
-<<<<<<< HEAD
 subplot(231), imshow(x); title('ori-img-01')
+
 %% 
-=======
 subplot(121), imshow(x); title('ori-img-01')
->>>>>>> c3d99a1f65c1da48636362a67edcf3c3b0b6f7f1
 
 % gause noise reduction
 y1 = fspecial('gaussian',5,0.1);
@@ -39,7 +37,7 @@ bw2 = edge(img_edge, 'Prewitt');
 
 imshowpair(bw1, bw2, 'montage')
 
-%%
+%% 
 
 img_grad = rgb2gray(img);
 [Gmag, Gdir] = imgradient(img_grad, 'prewitt');
