@@ -39,7 +39,7 @@ imshowpair(bw1, bw2, 'montage')
 
 %% 
 
-img_grad = rgb2gray(img);
+img_gray = rgb2gray(img);
 [Gmag, Gdir] = imgradient(img_grad, 'prewitt');
 
 figure
@@ -48,13 +48,30 @@ title('Gradient Magnitude, Gmag (left), and Gradient Direction, Gdir (right), us
 
 
 
+%% Noise Removal - averaging
+% https://www.mathworks.com/help/images/noise-removal.html
+
+
+J = img_gray;
+% average
+Kaverage = filter2(fspecial('average', 3), J)/255;
+%figure, imshow(Kaverage)
+
+% median
+Kmedian = medfilt2(J);
+imshowpair(Kaverage, Kmedian, 'montage')
+
+
+
+%% Remove the noise using the wiener2 function
+
+K = wiener2(J, [7, 7]);
+%figure, imshow(K(600:1000, 1:600));
+figure, imshow(K); title('wiener2');
+
+
+
 %%
-
-
-
-
-
-
 
 
 
