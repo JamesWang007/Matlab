@@ -33,7 +33,7 @@ imshowpair(bw1, bw2, 'montage')
 %%
 
 img_grad = rgb2gray(img);
-[Gmag, Gdir] = imgradient(img_grad, 'prewitt');
+[gmag, gdir] = imgradient(img_grad, 'prewitt')
 
 figure
 imshowpair(Gmag, Gdir, 'montage');
@@ -41,7 +41,7 @@ title('Gradient Magnitude, Gmag (left), and Gradient Direction, Gdir (right), us
 
 
 
-%%
+
 
 
 
