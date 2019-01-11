@@ -78,13 +78,9 @@ img_py1 = impyramid(img_py, 'reduce');
 img_py2 = impyramid(img_py1, 'reduce');
 img_py3 = impyramid(img_py2, 'reduce');
 
-img_py33 = impyramid(img_py3, 'expand');
-img_py22 = impyramid(img_py33, 'expand');
-img_py11 = impyramid(img_py22, 'expand');
+img_py22 = impyramid(img_py
+img_py11 = impyramid(img_py, 'expand');
 
-
-
-%% 
 
 
 
