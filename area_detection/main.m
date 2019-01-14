@@ -71,6 +71,17 @@ figure, imshow(K); title('wiener2');
 
 
 
+
+%%   - 
+bw = im2bw(img, 0.3);
+figure, imshow(bw)
+
+
+
+%%  - https://www.mathworks.com/help/images/ref/imbinarize.html
+imbin = imbinarize(img_gray, 'adaptive');
+figure, imshow(imbin)
+
 %% pyramid
 img_py = img_gray;
 
@@ -85,6 +96,7 @@ img_py11 = impyramid(img_py22, 'expand');
 
 
 %% 
+
 
 
 
