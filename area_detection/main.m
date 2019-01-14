@@ -71,10 +71,15 @@ figure, imshow(K); title('wiener2');
 
 
 
-%%
+%%   - 
+bw = im2bw(img, 0.3);
+figure, imshow(bw)
 
 
 
+%%  - https://www.mathworks.com/help/images/ref/imbinarize.html
+imbin = imbinarize(img_gray, 'adaptive');
+figure, imshow(imbin)
 
 
 
