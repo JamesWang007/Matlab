@@ -2,22 +2,29 @@
 % loading the image
 img = imread('proteins.jpg');
 
-figure
-imshow(img)
+%figure
+%imshow(img)
 
 % original image
 x = img;
 subplot(231), imshow(x); title('ori-img-01')
+
 %% 
+subplot(121), imshow(x); title('ori-img-01')
 
 % gause noise reduction
 y1 = fspecial('gaussian',5,0.1);
 z1 = imfilter(x,y1,'symmetric');
-subplot(232), imshow(z1); title('scale 5*5, std = 0.1')
+subplot(122), imshow(z1); title('scale 5*5, std = 0.1')
 
 y2 = fspecial('gaussian', 5,2);
 
 
+%%
+img_grad = rgb2gray(img);
+
+figure
+imshow(img_grad);
 
 % edge detection
 img_edge = rgb2gray(img);
@@ -30,10 +37,10 @@ bw2 = edge(img_edge, 'Prewitt');
 
 imshowpair(bw1, bw2, 'montage')
 
-%%
+%% 
 
-img_grad = rgb2gray(img);
-[gmag, gdir] = imgradient(img_grad, 'prewitt')
+img_gray = rgb2gray(img);
+[Gmag, Gdir] = imgradient(img_grad, 'prewitt');
 
 figure
 imshowpair(Gmag, Gdir, 'montage');
@@ -41,13 +48,38 @@ title('Gradient Magnitude, Gmag (left), and Gradient Direction, Gdir (right), us
 
 
 
+%% Noise Removal - averaging
+% https://www.mathworks.com/help/images/noise-removal.html
+
+
+J = img_gray;
+% average
+Kaverage = filter2(fspecial('average', 3), J)/255;
+%figure, imshow(Kaverage)
+
+% median
+Kmedian = medfilt2(J);
+imshowpair(Kaverage, Kmedian, 'montage')
 
 
 
+%% Remove the noise using the wiener2 function
+
+K = wiener2(J, [7, 7]);
+%figure, imshow(K(600:1000, 1:600));
+figure, imshow(K); title('wiener2');
 
 
 
+%% pyramid
+img_py = img_gray;
 
+img_py1 = impyramid(img_py, 'reduce');
+img_py2 = impyramid(img_py1, 'reduce');
+img_py3 = impyramid(img_py2, 'reduce');
+
+img_py22 = impyramid(img_py
+img_py11 = impyramid(img_py, 'expand');
 
 
 
